@@ -1,0 +1,16 @@
+html {
+    color: #fff;
+    margin: 0;
+    overflow: hidden;
+    background: #000;
+    background: linear-gradient(to bottom, #0d1119, #202739);
+    font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
+    height: 100%;
+}
+
+
+.tools {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
