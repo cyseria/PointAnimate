@@ -1,12 +1,14 @@
 /**
  * @file 3D 例子场景类
- * @author 陈蔓青（xcyseria@gmail.com）
+ * @author 陈蔓青
  */
 
-import {
-    Scene, PerspectiveCamera, WebGLRenderer, AxesHelper, TrackballControls
-} from 'three';
+var THREE = require('three');
+var TrackballControls = require('three-trackballcontrols');
+var Stats = require('stats.js');
+var TWEEN = require('@tweenjs/tween.js');
 
+/* 调试模式开启的工具 */
 let controls; // 相机控制器
 let stats; // 检测状态的
 
@@ -33,18 +35,13 @@ class PonitScene {
      *   renderType: {String} // 渲染方式，'gpu' 或者 'cpu'
      **/
     constructor(conf) {
-
         container = conf.container;
-
-        scene = new Scene();
-        // 调试用
-        window.scene = scene;
-
-        camera = new PerspectiveCamera(45, window.innerWidth / window.innerHeight, .1, 1000);
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, .1, 1000);
         camera.position.z = 220;
         camera.position.y = 0;
 
-        renderer = new WebGLRenderer({
+        renderer = new THREE.WebGLRenderer({
             antialias: true, //反锯齿
             precision: "highp", //精度范围
             alpha: true, //是否可以设置背景色透明
@@ -55,15 +52,12 @@ class PonitScene {
 
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
-
-        // document.body.appendChild( renderer.domElement );
-
         container.appendChild(renderer.domElement);
 
         dev = conf.dev;
         if (dev) {
             this.openDevTool()
-            const axes = new AxesHelper(1000);
+            const axes = new THREE.AxesHelper(1000);
             scene.add(axes);
         };
 
@@ -100,10 +94,18 @@ class PonitScene {
     removeParticles(object3D) {
         scene.remove(object3D)
     }
+
+    // TODO
+    // 根据屏幕计算偏移量，以及缩放信息
+    // 默认模型居中显示
+    // （如果直接缩小粒子会显得十分密集）
+    //
+
 }
 
 function render() {
-    window.animator.update();
+    // particles.rotation.y += 0.001;
+    // window.animator.update();
     setCamera();
     renderer.render(scene, camera);
 }
@@ -116,7 +118,9 @@ function animate() {
         stats.update();
         controls.update();
     }
+
 }
+
 
 
 //TODO 事件绑定，需要统一于优化

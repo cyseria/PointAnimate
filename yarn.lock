@@ -10,6 +10,10 @@ stats.js@^0.17.0:
   version "0.17.0"
   resolved "https://registry.npmjs.org/stats.js/-/stats.js-0.17.0.tgz#b1c3dc46d94498b578b7fd3985b81ace7131cc7d"
 
+three-trackballcontrols@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.npmjs.org/three-trackballcontrols/-/three-trackballcontrols-0.0.7.tgz#42cae1f6856d5f889eaae3a0e2fca9d214793e91"
+
 three@^0.89.0:
   version "0.89.0"
   resolved "https://registry.npmjs.org/three/-/three-0.89.0.tgz#4442d819a6168871b8d2cb37ad12a24310c170f5"

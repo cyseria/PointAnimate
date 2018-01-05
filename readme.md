@@ -4,5 +4,20 @@
 
 ## 开始使用
 
+Install with yarn:
+```
+yarn global add parcel-bundler
+```
+or with npm:
+```
+npm install -g parcel-bundler
+```
+
+运行：
+
+```
+parcel index.html
+```
+
 ## Feature
 - [] 文本粒子的创建
