@@ -11,7 +11,7 @@ const basicMaterial = new THREE.ShaderMaterial({ // 粒子材质
             value: new THREE.Color(0xffffff)
         },
         texture: {
-            value: new THREE.TextureLoader().load(`dist/${textureImg}`)
+            value: new THREE.TextureLoader().load(`${textureImg}`)
         }
     },
     // 定义的顶点着色器，和片元着色器，它们负责具体的粒子状态的运算

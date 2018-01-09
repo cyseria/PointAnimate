@@ -16,15 +16,15 @@ let container;
 let scene;
 let camera;
 let renderer;
-
 let particles; // 粒子集合
-
-const PARTICLE_SIZE = 20;
 
 let dev = false;
 /**
  * 粒子场景
  * @start-def: PonitScene: {Class}
+ *   dev: {boolean} // 是否为调试模式，包含 TrackballControls，stats，AxisHelper。
+ *   container: {DOM}  // 容器，如果没有就新建一个 append 到 body
+ *   renderType: {String} // 渲染方式，'gpu' 或者 'cpu'
  **/
 class PonitScene {
 
@@ -99,8 +99,6 @@ class PonitScene {
     // 根据屏幕计算偏移量，以及缩放信息
     // 默认模型居中显示
     // （如果直接缩小粒子会显得十分密集）
-    //
-
 }
 
 function render() {
@@ -118,7 +116,6 @@ function animate() {
         stats.update();
         controls.update();
     }
-
 }
 
 
